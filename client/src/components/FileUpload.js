@@ -1,11 +1,13 @@
 import React, { Fragment, useState } from 'react'
 import axios from 'axios';
+import Message from './Message';
 
 const FileUpload = () => {
 
     const [file, setFile] = useState('');
     const [fileName, setFileName] = useState('Choose file');
-    const [uploadedFile, setUploadedFile] = useState({});
+    const [setUploadedFile] = useState({});
+    const [message, setMessage] = useState('');
 
     const onChange = e => {
         setFile(e.target.files[0]);
@@ -16,7 +18,6 @@ const FileUpload = () => {
         e.preventDefault();
         const formData = new FormData();
         formData.append('file', file);
-        console.log(file);
      
         try {
             const res = await axios.post('/upload', formData, {
@@ -26,17 +27,19 @@ const FileUpload = () => {
             });
             const { fileName, filePath } = res.data;
             setUploadedFile({ fileName, filePath });
+            setMessage('DKP updated');
         } catch (error) {
             if(error.response.status === 500){
-                console.log('There was a problem with a server');
+                setMessage('Něco se pokazilo :(');
             } else {
-                console.log(error.response.msg);
+                setMessage(error.response.msg);
             }
         }
     }
 
     return (
         <Fragment>
+            {message ? <Message msg={message} /> : null}
             <form onSubmit={onSubmit} className="upload-section">
                 <div className="custom-file">
                     <input type="file" className="custom-file-input" id="customFile" onChange={onChange} accept=".xml"/>

@@ -2,6 +2,11 @@ body {
     background: url(./assets/imgs/aq_bg.jpg) no-repeat center center fixed;
 }
 
+.wow {
+    text-align: center;
+    height: 150px;
+}
+
 .upload-section {
     margin: 0 auto;
     max-width: 500px;
@@ -27,4 +32,8 @@ body {
     color: red;
     font-weight: bold;
     text-align: center;
+}
+
+.rdt_TableHeader {
+    display: none !important;
 }

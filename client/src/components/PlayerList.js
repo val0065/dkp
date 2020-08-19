@@ -1,8 +1,9 @@
-import React, { Component, Fragment, useState } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { getPlayers } from '../actions/playerActions';
 import PropTypes from 'prop-types';
 import DataTable, { createTheme } from 'react-data-table-component';
+import wow from '../assets/imgs/aq.png'
 
 createTheme('dkpStyle', {
     text: {
@@ -60,15 +61,13 @@ class PlayerList extends Component {
         this.props.getPlayers();
     }
 
-    
-
-
     render() {
         const { players } = this.props.player;
         return(
             <Fragment>
               <div className="container">
-              <div className="lastmodify">Naposledy upraveno:</div>
+              <img src={wow} className="wow mx-auto d-block"/>
+              
               <DataTable
                   title="Black Division - R2 DKP"
                   columns={columns}
