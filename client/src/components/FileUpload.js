@@ -39,7 +39,6 @@ const FileUpload = () => {
 
     return (
         <Fragment>
-            {message ? <Message msg={message} /> : null}
             <form onSubmit={onSubmit} className="upload-section">
                 <div className="custom-file">
                     <input type="file" className="custom-file-input" id="customFile" onChange={onChange} accept=".xml"/>
