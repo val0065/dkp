@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import { getPlayers } from '../actions/playerActions';
 import PropTypes from 'prop-types';
@@ -60,16 +60,24 @@ class PlayerList extends Component {
         this.props.getPlayers();
     }
 
+    
+
+
     render() {
         const { players } = this.props.player;
         return(
-            <DataTable
-                title="Black Division - R2 DKP"
-                columns={columns}
-                data={players}
-                maxWidth="500px"
-                theme="dkpStyle"
-            />
+            <Fragment>
+              <div className="container">
+              <div className="lastmodify">Naposledy upraveno:</div>
+              <DataTable
+                  title="Black Division - R2 DKP"
+                  columns={columns}
+                  data={players}
+                  maxWidth="500px"
+                  theme="dkpStyle"
+              />
+            </div>
+            </Fragment>
         );
     }
 }

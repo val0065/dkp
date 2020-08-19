@@ -8,8 +8,6 @@ body {
     padding-bottom: 50px;
 }
 .rdt_Table, .rdt_TableHeader {
-    max-width: 90% !important;
-    margin: 0 auto !important;
     background: rgba(0,0,0,0.65) !important;
 }
 .rdt_TableRow {
@@ -23,4 +21,10 @@ body {
 
 .marginBottom {
     padding-bottom: 50px;
+}
+
+.lastmodify {
+    color: red;
+    font-weight: bold;
+    text-align: center;
 }
