@@ -2,13 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParserInit = require('./middlewares');
 const path = require('path');
+const config = require('config');
 
 const fs = require('fs');
 const fastcsv = require('fast-csv');
 const xml2js = require('xml2js');
 
-const players = require('./routes/api/players');
 const Player = require('./models/Player');
+const User = require('./models/User');
 const { collection } = require('./models/Player');
 
 const app = express();
@@ -17,16 +18,18 @@ const app = express();
 bodyParserInit(app);
 
 // DB Config
-const db = require('./config/keys').mongoURI;
+const db = config.get('mongoURI');
 const file = {};
 // Connect to MongoDB
 mongoose
-    .connect(db)
+    .connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
     .then(() => console.log('MongoDB connected...'))
     .catch(err => console.log(err));
 
 // Use Routes
-app.use('/api/players', players);
+app.use('/api/players', require('./routes/api/players'));
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/auth', require('./routes/api/auth'));
 
 app.post('/upload', (req, res) => {
     if (req.files === null) {

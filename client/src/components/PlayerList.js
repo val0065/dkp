@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getPlayers } from '../actions/playerActions';
 import PropTypes from 'prop-types';
 import DataTable, { createTheme } from 'react-data-table-component';
-import wow from '../assets/imgs/aq.png'
+import wow from '../assets/imgs/aq.png';
 
 createTheme('dkpStyle', {
     text: {
@@ -66,7 +66,7 @@ class PlayerList extends Component {
         return(
             <Fragment>
               <div className="container">
-              <img src={wow} className="wow mx-auto d-block"/>
+              <img src={wow} alt="AQ Content" className="wow mx-auto d-block"/>
               
               <DataTable
                   title="Black Division - R2 DKP"

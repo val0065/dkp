@@ -51,5 +51,4 @@ const FileUpload = () => {
         </Fragment>
     )
 }
-
 export default FileUpload;

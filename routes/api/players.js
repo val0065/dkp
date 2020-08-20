@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../../middleware/auth');
 
 // Player Model
 const Player = require('../../models/Player');
@@ -15,8 +16,8 @@ router.get('/', (req, res) => {
 
 // @route   POST api/players
 // @desc    Create a player record
-// @access  Public
-router.post('/', (req, res) => {
+// @access  Private
+router.post('/', auth, (req, res) => {
     const newPlayer = new Player({
         name: req.body.name,
         classType: req.body.classType,
@@ -30,8 +31,8 @@ router.post('/', (req, res) => {
 
 // @route   DELETE api/players/:id
 // @desc    Delete a player record
-// @access  Public
-router.delete('/:id', (req, res) => {
+// @access  Private
+router.delete('/:id', auth, (req, res) => {
     Player.findById(req.params.id)
         .then(player => player.remove().then(() => res.json({ success: true})))
         .catch(err => res.status(404).json({ success: false }))
