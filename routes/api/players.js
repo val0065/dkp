@@ -11,6 +11,7 @@ const { model } = require('../../models/Player');
 // @access  Public
 router.get('/', (req, res) => {
     Player.find()
+        .sort({'name': 1})
         .then(players => res.json(players))
 });
 
