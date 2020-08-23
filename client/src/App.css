@@ -50,3 +50,26 @@ body {
     padding: 10px;
     color: #fff;
 }
+
+.last-update {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.download-excel {
+    vertical-align: bottom;
+    text-align: right;
+    padding-bottom: 5px;
+}
+
+.export-icon {
+    color: #F5F5F5;
+}
+.export-icon:hover {
+    color: #DCDCDC;
+}
+.export-text{
+    color: #F5F5F5;
+}

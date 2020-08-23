@@ -17,7 +17,15 @@ const PlayerSchema = new Schema({
     },
     spent: {
         type: Number
+    },
+    diff: {
+        type: Number
+    },
+    date: {
+        type: Date,
+        default: Date.now
     }
+
 });
 
 module.exports = Player = mongoose.model('player', PlayerSchema);

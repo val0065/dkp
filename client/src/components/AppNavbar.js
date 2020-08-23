@@ -42,9 +42,9 @@ class AppNavbar extends Component {
                 <NavItem>
                     <NavLink href="/upload">Upload</NavLink>
                 </NavItem>
-                <NavItem>
+                {/* <NavItem>
                     <RegisterModal />
-                </NavItem>
+                </NavItem> */}
                 <NavItem>
                     <Logout />
                 </NavItem>

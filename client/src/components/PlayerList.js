@@ -4,6 +4,7 @@ import { getPlayers } from '../actions/playerActions';
 import PropTypes from 'prop-types';
 import DataTable, { createTheme } from 'react-data-table-component';
 import wow from '../assets/imgs/aq.png';
+import ExcelExport from './ExcelExport';
 
 createTheme('dkpStyle', {
     text: {
@@ -66,8 +67,17 @@ class PlayerList extends Component {
         return(
             <Fragment>
               <div className="container">
+              <div className="row">
+                <div className="col-sm last-update">
+                  Poslední aktualizace: 23.8.2020
+                </div>
+              </div>    
               <img src={wow} alt="AQ Content" className="wow mx-auto d-block"/>
-              
+              <div className="row">
+                <div className="col-sm download-excel">
+                  <ExcelExport />
+                </div>
+              </div>             
               <DataTable
                   title="Black Division - R2 DKP"
                   columns={columns}
