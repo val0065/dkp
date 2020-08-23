@@ -80,6 +80,7 @@ class PlayerList extends Component {
               </div>             
               <DataTable
                   title="Black Division - R2 DKP"
+                  defaultSortField="name"
                   columns={columns}
                   data={players}
                   maxWidth="500px"
