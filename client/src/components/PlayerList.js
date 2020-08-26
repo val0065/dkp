@@ -64,28 +64,32 @@ class PlayerList extends Component {
 
     render() {
         const { players } = this.props.player;
-        return(
+        let date = players.slice(0,1).map(player => player.date.split('T')[0]);
+        let stringDate = date.toString();
+        console.log(stringDate);
+
+          return(
             <Fragment>
               <div className="container">
-              <div className="row">
-                <div className="col-sm last-update">
-                  Poslední aktualizace: 23.8.2020
-                </div>
-              </div>    
-              <img src={wow} alt="AQ Content" className="wow mx-auto d-block"/>
-              <div className="row">
-                <div className="col-sm download-excel">
-                  <ExcelExport />
-                </div>
-              </div>             
-              <DataTable
-                  title="Black Division - R2 DKP"
-                  columns={columns}
-                  data={players}
-                  maxWidth="500px"
-                  theme="dkpStyle"
-              />
-            </div>
+                <div className="row">
+                  <div className="col-sm last-update">
+                    Poslední aktualizace: {stringDate}
+                  </div>
+                </div>    
+                <img src={wow} alt="AQ Content" className="wow mx-auto d-block"/>
+                <div className="row">
+                  <div className="col-sm download-excel">
+                    <ExcelExport />
+                  </div>
+                </div>             
+                <DataTable
+                    title="Black Division - R2 DKP"
+                    columns={columns}
+                    data={players}
+                    maxWidth="500px"
+                    theme="dkpStyle"
+                />
+              </div>
             </Fragment>
         );
     }

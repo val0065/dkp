@@ -20,12 +20,17 @@ class App extends Component {
     return (
     <Provider store={store}>
       <Router>
-        <div className="App marginBottom">
+        <div className="App">
           <AppNavbar/>
           <Switch>
             <Route path="/" exact component={PlayerList}/>
             <Route path='/upload' component={FileUpload}/>   
           </Switch>
+          <footer class="page-footer footer-container">
+            <div class="footer-copyright text-center py-3 footer-content">
+              Created by: <a href="https://valada.cz/" target="_blank">valada.cz</a> | <a href="https://github.com/val0065/dkp" target="_blank">Github</a>
+            </div>
+          </footer>
         </div>
       </Router>
     </Provider>
